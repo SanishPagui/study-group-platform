@@ -8,8 +8,8 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 const Footer = () => {
   const footerRef = useRef(null);
   const wavesRef = useRef(null);
-  const footerContentRef = useRef(null);
-  const socialIconsRef = useRef(null);
+  const footerContentRef = useRef<HTMLDivElement | null>(null);
+  const socialIconsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -30,40 +30,44 @@ const Footer = () => {
         }
       }
     );
-    gsap.fromTo(
-      footerContentRef.current.children,
-      { y: 60, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        stagger: 0.1, 
-        duration: 0.8, 
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top bottom-=50",
-          toggleActions: "play none none none"
+    if (footerContentRef.current) {
+      gsap.fromTo(
+        footerContentRef.current.children,
+        { y: 60, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          stagger: 0.1, 
+          duration: 0.8, 
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top bottom-=50",
+            toggleActions: "play none none none"
+          }
         }
-      }
-    );
+      );
+    }
 
     // Animate social icons
-    gsap.fromTo(
-      socialIconsRef.current.children,
-      { scale: 0, rotation: -30 },
-      { 
-        scale: 1, 
-        rotation: 0, 
-        stagger: 0.1, 
-        duration: 0.6, 
-        ease: "elastic.out(1, 0.3)",
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top bottom-=50",
-          toggleActions: "play none none none"
+    if (socialIconsRef.current) {
+      gsap.fromTo(
+        socialIconsRef.current.children,
+        { scale: 0, rotation: -30 },
+        { 
+          scale: 1, 
+          rotation: 0, 
+          stagger: 0.1, 
+          duration: 0.6, 
+          ease: "elastic.out(1, 0.3)",
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top bottom-=50",
+            toggleActions: "play none none none"
+          }
         }
-      }
-    );
+      );
+    }
 
     // Interactive hover effects for buttons
     const buttons = document.querySelectorAll('.footer-btn');
