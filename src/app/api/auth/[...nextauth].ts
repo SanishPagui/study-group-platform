@@ -19,7 +19,7 @@ export default NextAuth({
                 }
 
                 const user = await prisma.user.findUnique({where: {email: credentials.email}});
-                if(!user || bcrypt.compareSync(credentials.password, user.password)){
+                if(!user || !bcrypt.compareSync(credentials.password, user.password)){
                     throw new Error("Email or Password is incorrect");
                 }
 

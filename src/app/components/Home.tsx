@@ -9,7 +9,7 @@ const Home = () => {
           <span className='rounded-3xl bg-white p-4 px-10 py-14'>
             <h1 className='text-5xl w-[20vw] font-semibold '>Study Together, Achieve Together</h1>
             <p className='mt-6 text-2xl'>Join thousands of students collaborating in virtual study group to reach thier academic goals</p>
-            <Link href={"/joinGroups"}><button className='bg-cyan-400 cursor-pointer border-1 border-gray-600 rounded-full p-2 px-4 mt-7'>Get Started</button></Link>
+            <Link href={"/groups"}><button className='bg-cyan-400 cursor-pointer border-1 border-gray-600 rounded-full p-2 px-4 mt-7'>Get Started</button></Link>
           </span>
           <span>
             {/* some more things */}
