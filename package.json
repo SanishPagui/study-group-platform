@@ -13,6 +13,7 @@
     "@prisma/client": "^6.5.0",
     "bcryptjs": "^3.0.2",
     "gsap": "^3.12.7",
+    "locomotive-scroll": "^5.0.0-beta.21",
     "next": "^15.2.4",
     "next-auth": "^4.24.11",
     "prisma": "^6.5.0",
