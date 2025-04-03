@@ -12,11 +12,11 @@ const Page = () => {
   const sidebarRef = useRef(null)
   const mainContentRef = useRef(null)
   const activityRef = useRef(null)
-  const menuItemsRef = useRef([])
+  const menuItemsRef = useRef<any[]>([])
   
   // Clear and reset refs array for menu items
   menuItemsRef.current = []
-  const addToMenuRefs = (el) => {
+  const addToMenuRefs = (el: any) => {
     if (el && !menuItemsRef.current.includes(el)) {
       menuItemsRef.current.push(el)
     }
@@ -77,7 +77,7 @@ const Page = () => {
     }
   }, [activeItem])
 
-  const settingTheList = (item) => {
+  const settingTheList = (item: React.SetStateAction<string>) => {
     setActiveItem(item)
   }
   
