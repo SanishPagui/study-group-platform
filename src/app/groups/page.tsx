@@ -251,7 +251,7 @@ const page = () => {
               {myGroups.map((group) => (
                 <div
                   key={group.id}
-                  ref={addToCardRefs}
+                  ref={addToCardRefs as React.Ref<HTMLDivElement>}
                   className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-200 hover:shadow-lg"
                 >
                   <div className="p-6">
@@ -350,7 +350,7 @@ const page = () => {
               {filteredDiscoverGroups.map((group) => (
                 <div
                   key={group.id}
-                  ref={addToCardRefs}
+                  ref={addToCardRefs as React.Ref<HTMLDivElement>}
                   className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-200"
                 >
                   <div className="p-5">
@@ -371,7 +371,7 @@ const page = () => {
                     </div>
                     
                     <button
-                      onClick={() => handleJoinGroup(group)}
+                      onClick={() => handleJoinGroup(null)}
                       className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition-colors duration-200"
                     >
                       Request to Join
