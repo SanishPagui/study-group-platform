@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState, useRef } from 'react'
 import { gsap } from 'gsap'
-import Image from 'next/image'
 
 const Page = () => {
   const [activeItem, setActiveItem] = useState('')
@@ -12,11 +11,11 @@ const Page = () => {
   const sidebarRef = useRef(null)
   const mainContentRef = useRef(null)
   const activityRef = useRef(null)
-  const menuItemsRef = useRef<any[]>([])
+  const menuItemsRef = useRef<HTMLLIElement[]>([])
   
   // Clear and reset refs array for menu items
   menuItemsRef.current = []
-  const addToMenuRefs = (el: any) => {
+  const addToMenuRefs = (el: HTMLLIElement | null) => {
     if (el && !menuItemsRef.current.includes(el)) {
       menuItemsRef.current.push(el)
     }
