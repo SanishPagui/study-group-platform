@@ -1,10 +1,9 @@
 'use client'
-import React from 'react'
-import Home from './components/Home'
+import React, { useEffect } from 'react';
+import Home from './components/Home';
 import LocomotiveScroll from 'locomotive-scroll';
-import { useEffect } from 'react';
 
-const page = () => {
+const Page = () => {
   useEffect(() => {
     if (typeof window !== "undefined") { 
         const locomotiveScroll = new LocomotiveScroll();
@@ -12,12 +11,13 @@ const page = () => {
             locomotiveScroll.destroy();
         };
     }
-}, []);
+  }, []);
+
   return (
     <div>
-      <Home/>
+      <Home />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default Page;
